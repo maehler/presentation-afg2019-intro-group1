@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>reveal.js</title>
+        <title>AFG2019 &mdash; Group 1</title>
 
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/maehler_dark.css">
@@ -35,10 +35,83 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1>Slide 1</h1>
+                    <h1>GWAS and potential <i>P</i>-hacking</h1>
+                    <p><small>A functional genomics project</small></p>
                 </section>
+
                 <section>
-                    <h1>Slide 2</h1>
+                    <h1>Background</h1>
+                    <ul>
+                        <p>Studies where teams perform association studies between a trait and a subset of SNPs within genes that are assumed to contribute to the trait variation.</p>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1><i>P</i>-hacking</h1>
+                    <p>The (possibly unintentional) misuse of statistical methods in order to obtain significant <i>P</i>-values.</p>
+                </section>
+
+                <section data-background-image="https://imgs.xkcd.com/comics/significant.png"
+                    data-background-size=contain></section>
+
+                <section>
+                    <h2>Your task</h2>
+                    <p>Run regular GWAS as well as GWAS on a subset of SNPs that are located in genes differentially expressed for the trait.</p>
+                </section>
+
+                <section>
+                    <h2>Data</h2>
+                    <ul>
+                        <li>Gene expression: ~35,000 genes, 80 genotypes (<code>htseq-count</code>)</li>
+                        <li>Genetic variation: ~4 million SNPs (VCF format)</li>
+                        <li>
+                            Phenotype data: leaf shape (BLUPs)
+                            <ul>
+                                <li>Area</li>
+                                <li>Indent depth</li>
+                                <li>Circularity</li>
+                            </ul>
+                        </li>
+                        <li>Gene annotations (gff3 format)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Choices</h1>
+                    <ul>
+                        <li>Do DE yourselves or get the genes</li>
+                        <li>Perform the regular GWAS or get our old results</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Thoughts</h1>
+                    <ul>
+                        <li>Do you find more significant assocations?</li>
+                        <li>Do these in that case make biological sense?</li>
+                        <li>Is this cheating?</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Problems you might run into</h3>
+                    <ul>
+                        <li>Extracting SNPs within a set of genes</li>
+                        <li>Converting SNP data to formats that can be used in GWAS</li>
+                        <li>Differential expression for a continuous trait</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Software</h2>
+                    <ul>
+                        <li>bcftools (working with VCF files; command line)</li>
+                        <li>bedtools (genome arithmetic; command line)</li>
+                        <li>plink (file formats SNPs; command line)</li>
+                        <li>GEMMA (GWAS; command line)</li>
+                        <li>DESeq2 (differential expression; R-package)</li>
+                        <li>Downstream analysis in R or Python (or any other language you like)</li>
+                    </ul>
                 </section>
             </div>
         </div>
